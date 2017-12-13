@@ -99,8 +99,10 @@ echo "## AMP/Ardupilot installed ##"
 cd ../../catkin_ws/src/
 vcs import < ../../gazebo.repos
 cd ..
+source devel/setup.bash
 catkin_make --pkg mav_msgs
 source devel/setup.bash
+cp src/glog_catkin/fix-unused-typedef-warning.patch src/
 catkin_make -j 1
 bash -c 'echo source `pwd`/devel/setup.bash >> ~/.bashrc'
 echo "## ROS workspace compiled ##"
