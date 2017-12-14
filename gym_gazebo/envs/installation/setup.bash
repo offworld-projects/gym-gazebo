@@ -103,6 +103,7 @@ source devel/setup.bash
 catkin_make --pkg mav_msgs
 source devel/setup.bash
 cp src/glog_catkin/fix-unused-typedef-warning.patch src/
+sudo apt-get update && sudo apt-get install gazebo7 libgazebo7-dev
 catkin_make -j 1
 bash -c 'echo source `pwd`/devel/setup.bash >> ~/.bashrc'
 echo "## ROS workspace compiled ##"
