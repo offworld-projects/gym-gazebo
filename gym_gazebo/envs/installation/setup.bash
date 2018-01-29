@@ -52,17 +52,17 @@ sudo apt-get install -y git                            \
                         ros-indigo-geodesy             \
                         ros-indigo-octomap-ros         \
                         ros-indigo-control-toolbox     \
-			ros-indigo-pluginlib	       \
-			ros-indigo-trajectory-msgs     \
-			ros-indigo-control-msgs	       \
-			ros-indigo-std-srvs 	       \
-			ros-indigo-nodelet	       \
-			ros-indigo-urdf		       \
-			ros-indigo-rviz		       \
-			ros-indigo-kdl-conversions     \
-			ros-indigo-eigen-conversions   \
-			ros-indigo-tf2-sensor-msgs     \
-			ros-indigo-pcl-ros	       \
+                        ros-indigo-pluginlib	       \
+                        ros-indigo-trajectory-msgs     \
+                        ros-indigo-control-msgs	       \
+                        ros-indigo-std-srvs 	       \
+                        ros-indigo-nodelet	       \
+                        ros-indigo-urdf		       \
+                        ros-indigo-rviz		       \
+                        ros-indigo-kdl-conversions     \
+                        ros-indigo-eigen-conversions   \
+                        ros-indigo-tf2-sensor-msgs     \
+                        ros-indigo-pcl-ros	       \
                         gawk                           \
                         libtinyxml2-dev
 sudo easy_install numpy
@@ -104,7 +104,7 @@ catkin_make --pkg mav_msgs
 source devel/setup.bash
 cp src/glog_catkin/fix-unused-typedef-warning.patch src/
 cp src/glog_catkin/get-newest-config-guess.sh src/
-sudo apt-get update && sudo apt-get install gazebo7 libgazebo7-dev
+sudo apt-get update && sudo apt-get install gazebo7 libgazebo7 libgazebo7-dev
 catkin_make -j 1
 bash -c 'echo source `pwd`/devel/setup.bash >> ~/.bashrc'
 echo "## ROS workspace compiled ##"
@@ -112,7 +112,7 @@ echo "## ROS workspace compiled ##"
 #add own models path to gazebo models path
 if [ -z "$GAZEBO_MODEL_PATH" ]; then
   bash -c 'echo "export GAZEBO_MODEL_PATH="`pwd`/../../assets/models >> ~/.bashrc'
-  exec bash #reload bashrc
+  source ~/.bashrc #reload bashrc
 fi
 
 # Theano and Keras installation and requisites
